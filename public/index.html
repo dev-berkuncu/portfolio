@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Berk Uncu - Frontend Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#c5c7c8",
+                      "primary": "#c6c6c9",
+                      "secondary-container": "#00a572",
+                      "on-secondary": "#003824",
+                      "on-secondary-fixed-variant": "#005236",
+                      "on-surface": "#dce2f3",
+                      "error": "#ffb4ab",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-container": "#7b7d7f",
+                      "background": "#0c141f",
+                      "inverse-on-surface": "#2a313d",
+                      "outline": "#8f9194",
+                      "on-primary-fixed-variant": "#454749",
+                      "primary-fixed": "#e2e2e5",
+                      "on-primary-fixed": "#1a1c1e",
+                      "tertiary-container": "#0e1112",
+                      "on-tertiary-fixed-variant": "#454748",
+                      "inverse-surface": "#dce2f3",
+                      "on-secondary-fixed": "#002113",
+                      "on-tertiary-container": "#7b7d7e",
+                      "surface-tint": "#c6c6c9",
+                      "on-error": "#690005",
+                      "outline-variant": "#45474a",
+                      "primary-container": "#0f1113",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-tertiary-fixed": "#191c1d",
+                      "on-tertiary": "#2e3132",
+                      "surface-variant": "#2e3541",
+                      "surface-container-high": "#232a36",
+                      "surface-container": "#19202b",
+                      "surface-container-lowest": "#070e19",
+                      "on-background": "#dce2f3",
+                      "surface-dim": "#0c141f",
+                      "surface-bright": "#323946",
+                      "primary-fixed-dim": "#c6c6c9",
+                      "secondary": "#4edea3",
+                      "on-primary": "#2f3133",
+                      "inverse-primary": "#5d5e61",
+                      "on-secondary-container": "#00311f",
+                      "surface-container-highest": "#2e3541",
+                      "on-surface-variant": "#c5c6ca",
+                      "surface-container-low": "#151c27",
+                      "surface": "#0c141f",
+                      "error-container": "#93000a",
+                      "tertiary-fixed": "#e1e3e4",
+                      "tertiary-fixed-dim": "#c5c7c8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-lg": "80px",
+                      "container-max": "1280px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "24px",
+                      "gutter": "32px",
+                      "stack-sm": "8px",
+                      "stack-md": "24px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "72px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .group:hover .group-hover\:scale-102 {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-background/80 backdrop-blur-[20px] sticky top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto flat no shadows">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">BERK UNCU</div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-label-caps text-label-caps text-secondary border-b border-secondary pb-1 scale-95 transition-transform" href="#projects">Projeler</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#about">Hakkımda & İletişim</a>
+</nav>
+</header>
+<main class="flex-grow max-w-container-max w-full mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Header Section -->
+<section id="projects" class="mb-stack-lg border-b border-surface-variant pb-8 pt-8">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">Projelerim</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Geliştirdiğim ve tasarım süreçlerinde yer aldığım web projelerinden bazıları.</p>
+</section>
+<!-- Project Grid Layout -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Project Card 1 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://gekmuhendislik.com.tr/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="GEK Mühendislik" src="https://api.microlink.io/?url=https://gekmuhendislik.com.tr/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">GEK Mühendislik</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">WordPress</span>
+</div>
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://atalayfinans.com/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="Atalay Finans" src="https://api.microlink.io/?url=https://atalayfinans.com/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Atalay Finans</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">JavaScript</span>
+</div>
+</div>
+</article>
+<!-- Project Card 3 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://flowb.com.tr/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="FlowB" src="https://api.microlink.io/?url=https://flowb.com.tr/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">FlowB</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">JavaScript</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+</div>
+</div>
+</article>
+<!-- Project Card 4 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://quantumegitim.com/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="Quantum Eğitim" src="https://api.microlink.io/?url=https://quantumegitim.com/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Quantum Eğitim</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">WordPress</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+</div>
+</div>
+</article>
+<!-- Project Card 5 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://besyollimitkurs.com/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="Beşyol Limit Kurs" src="https://api.microlink.io/?url=https://besyollimitkurs.com/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Beşyol Limit Kurs</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">WordPress</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+</div>
+</div>
+</article>
+<!-- Project Card 6 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://besiktasvipegitim.com/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="Beşiktaş VIP Eğitim" src="https://api.microlink.io/?url=https://besiktasvipegitim.com/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Beşiktaş VIP Eğitim</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">WordPress</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+</div>
+</div>
+</article>
+<!-- Project Card 7 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://guneslisinavkoleji.com/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="Güneşli Sınav Koleji" src="https://api.microlink.io/?url=https://guneslisinavkoleji.com/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Güneşli Sınav Koleji</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">WordPress</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+</div>
+</div>
+</article>
+<!-- Project Card 8 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://avcilarsinavkoleji.com/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="Avcılar Sınav Koleji" src="https://api.microlink.io/?url=https://avcilarsinavkoleji.com/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Avcılar Sınav Koleji</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">WordPress</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+</div>
+</div>
+</article>
+<!-- Project Card 9 -->
+<article class="group relative bg-surface-container rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/50 transition-all duration-300">
+<a href="https://bakirkoysinavlisesi.com/" target="_blank" class="block relative aspect-video overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102" data-alt="Bakırköy Sınav Lisesi" src="https://api.microlink.io/?url=https://bakirkoysinavlisesi.com/&screenshot=true&meta=false&embed=screenshot.url"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+<span class="px-6 py-3 border border-on-surface text-on-surface font-label-caps text-label-caps rounded hover:bg-on-surface hover:text-background transition-colors">Siteyi Ziyaret Et</span>
+</div>
+</a>
+<div class="p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Bakırköy Sınav Lisesi</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">WordPress</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 border border-outline-variant rounded-full font-label-caps text-label-caps text-on-surface-variant">CSS</span>
+</div>
+</div>
+</article>
+</div>
+
+<!-- About & Contact Section -->
+<section id="about" class="mb-stack-lg border-t border-b border-surface-variant py-stack-lg mt-stack-lg grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">Hakkımda</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-4">1 yıl freelance deneyime sahip bir Frontend Developer'ım. HTML, CSS ve JavaScript ile modern, hızlı ve SEO uyumlu web sitelerin gelişmesine yardımcı oluyor; site kurulumu/tema düzenleme, teknik SEO ve blog entegrasyonu gibi uçtan uca süreçleri yönetiyorum.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">Anadolu Üniversitesi AÖF'de Web Tasarım ve Kodlama eğitimime devam ediyor, OnlyJS Frontend Developer eğitimiyle JavaScript odağımı güçlendirdim. Canva ve CapCut gibi araçlarla görsel/video içerik ihtiyaçlarını desteklerim.</p>
+
+</div>
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">İletişim</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">Projeleriniz ve iş birlikleri için benimle iletişime geçebilirsiniz.</p>
+<form class="flex flex-col gap-4">
+  <div>
+    <label class="block text-sm font-medium text-on-surface-variant mb-1" for="name">İsim</label>
+    <input type="text" id="name" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="Adınız" required>
+  </div>
+  <div>
+    <label class="block text-sm font-medium text-on-surface-variant mb-1" for="email">E-posta</label>
+    <input type="email" id="email" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="ornek@email.com" required>
+  </div>
+  <div>
+    <label class="block text-sm font-medium text-on-surface-variant mb-1" for="message">Mesaj</label>
+    <textarea id="message" rows="4" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors resize-none" placeholder="Mesajınız..." required></textarea>
+  </div>
+  <button type="submit" class="font-label-caps text-label-caps bg-secondary-container text-on-secondary px-8 py-4 rounded hover:opacity-90 transition-opacity mt-2">GÖNDER</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md border-t border-outline-variant">
+<div class="font-label-caps text-label-caps font-bold text-on-surface">© 2024 BERK UNCU. BÜTÜN HAKLARI SAKLIDIR.</div>
+<nav class="flex gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Dribbble</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">GitHub</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">LinkedIn</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Archive</a>
+</nav>
+</footer>
+</body></html>
