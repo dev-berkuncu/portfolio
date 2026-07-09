@@ -343,20 +343,22 @@
 <div>
 <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">İletişim</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">Projeleriniz ve iş birlikleri için benimle iletişime geçebilirsiniz.</p>
-<form class="flex flex-col gap-4">
+<form id="contactForm" action="https://formsubmit.co/ajax/buncu97@gmail.com" method="POST" class="flex flex-col gap-4">
+  <input type="hidden" name="_captcha" value="false">
   <div>
     <label class="block text-sm font-medium text-on-surface-variant mb-1" for="name">İsim</label>
-    <input type="text" id="name" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="Adınız" required>
+    <input type="text" name="name" id="name" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="Adınız" required>
   </div>
   <div>
     <label class="block text-sm font-medium text-on-surface-variant mb-1" for="email">E-posta</label>
-    <input type="email" id="email" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="ornek@email.com" required>
+    <input type="email" name="email" id="email" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="ornek@email.com" required>
   </div>
   <div>
     <label class="block text-sm font-medium text-on-surface-variant mb-1" for="message">Mesaj</label>
-    <textarea id="message" rows="4" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors resize-none" placeholder="Mesajınız..." required></textarea>
+    <textarea name="message" id="message" rows="4" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors resize-none" placeholder="Mesajınız..." required></textarea>
   </div>
-  <button type="submit" class="font-label-caps text-label-caps bg-secondary-container text-on-secondary px-8 py-4 rounded hover:opacity-90 transition-opacity mt-2">GÖNDER</button>
+  <div id="formMessage"></div>
+  <button type="submit" id="submitBtn" class="font-label-caps text-label-caps bg-secondary-container text-on-secondary px-8 py-4 rounded hover:opacity-90 transition-opacity mt-2 disabled:opacity-50 disabled:cursor-not-allowed">GÖNDER</button>
 </form>
 </div>
 </section>
@@ -369,4 +371,41 @@
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">LinkedIn</a>
 </nav>
 </footer>
+<script>
+  const form = document.getElementById('contactForm');
+  const messageDiv = document.getElementById('formMessage');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = 'GÖNDERİLİYOR...';
+      submitBtn.disabled = true;
+      messageDiv.innerHTML = '';
+
+      fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+              'Accept': 'application/json'
+          }
+      })
+      .then(response => {
+          if (response.ok) {
+              messageDiv.innerHTML = '<div class="p-4 text-sm text-secondary bg-secondary-container/10 border border-secondary/20 rounded" role="alert">Mesajınız başarıyla gönderildi! Size en kısa sürede dönüş yapacağım. (Not: İlk gönderiminizse e-postanıza gelen onayı tamamlamayı unutmayın.)</div>';
+              form.reset();
+          } else {
+              messageDiv.innerHTML = '<div class="p-4 text-sm text-error bg-error-container/10 border border-error/20 rounded" role="alert">Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</div>';
+          }
+      })
+      .catch(error => {
+          messageDiv.innerHTML = '<div class="p-4 text-sm text-error bg-error-container/10 border border-error/20 rounded" role="alert">Bir bağlantı hatası oluştu. Lütfen internetinizi kontrol edip tekrar deneyin.</div>';
+      })
+      .finally(() => {
+          submitBtn.innerText = originalText;
+          submitBtn.disabled = false;
+      });
+  });
+</script>
 </body></html>
