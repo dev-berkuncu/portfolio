@@ -384,12 +384,16 @@
       submitBtn.disabled = true;
       messageDiv.innerHTML = '';
 
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
       fetch(form.action, {
           method: "POST",
-          body: new FormData(form),
           headers: {
+              'Content-Type': 'application/json',
               'Accept': 'application/json'
-          }
+          },
+          body: JSON.stringify(data)
       })
       .then(response => {
           if (response.ok) {
