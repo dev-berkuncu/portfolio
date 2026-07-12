@@ -343,10 +343,7 @@
 <div>
 <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">İletişim</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">Projeleriniz ve iş birlikleri için benimle iletişime geçebilirsiniz.</p>
-<form id="contactForm" action="https://formsubmit.co/buncu97@gmail.com" method="POST" class="flex flex-col gap-4">
-  <input type="hidden" name="_captcha" value="false">
-  <!-- Bu gizli input ile form gönderildikten sonra doğrudan ana sayfaya dönmesini sağlıyoruz -->
-  <input type="hidden" name="_next" value="#">
+<form id="contactForm" action="/api/contact" method="POST" class="flex flex-col gap-4">
   <div>
     <label class="block text-sm font-medium text-on-surface-variant mb-1" for="name">İsim</label>
     <input type="text" name="name" id="name" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="Adınız" required>
