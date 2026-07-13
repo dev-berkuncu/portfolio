@@ -5,6 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Berk Uncu - Frontend Developer</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -343,14 +344,14 @@
 <div>
 <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">İletişim</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">Projeleriniz ve iş birlikleri için benimle iletişime geçebilirsiniz.</p>
-<form id="contactForm" action="/api/contact" method="POST" class="flex flex-col gap-4">
+<form id="contactForm" class="flex flex-col gap-4">
   <div>
     <label class="block text-sm font-medium text-on-surface-variant mb-1" for="name">İsim</label>
-    <input type="text" name="name" id="name" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="Adınız" required>
+    <input type="text" name="from_name" id="name" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="Adınız" required>
   </div>
   <div>
     <label class="block text-sm font-medium text-on-surface-variant mb-1" for="email">E-posta</label>
-    <input type="email" name="email" id="email" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="ornek@email.com" required>
+    <input type="email" name="from_email" id="email" class="w-full bg-surface-container-highest border border-outline-variant rounded px-4 py-2 text-on-surface focus:outline-none focus:border-secondary transition-colors" placeholder="ornek@email.com" required>
   </div>
   <div>
     <label class="block text-sm font-medium text-on-surface-variant mb-1" for="message">Mesaj</label>
@@ -369,4 +370,37 @@
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">LinkedIn</a>
 </nav>
 </footer>
+<script>
+  emailjs.init('95WSkaRTpvP7Bx4k2');
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const originalText = btn.textContent;
+    btn.textContent = 'GÖNDERİLİYOR...';
+    btn.disabled = true;
+
+    emailjs.sendForm('service_oes22cd', 'template_rfzj6s3', this)
+      .then(function() {
+        btn.textContent = '✓ GÖNDERİLDİ!';
+        btn.style.backgroundColor = '#00a572';
+        document.getElementById('contactForm').reset();
+        setTimeout(function() {
+          btn.textContent = originalText;
+          btn.style.backgroundColor = '';
+          btn.disabled = false;
+        }, 3000);
+      })
+      .catch(function(error) {
+        console.error('EmailJS Error:', error);
+        btn.textContent = 'HATA OLUŞTU';
+        btn.style.backgroundColor = '#93000a';
+        setTimeout(function() {
+          btn.textContent = originalText;
+          btn.style.backgroundColor = '';
+          btn.disabled = false;
+        }, 3000);
+      });
+  });
+</script>
 </body></html>
